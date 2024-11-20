@@ -1,0 +1,18 @@
+{
+    "*.nt": {
+        "filetype": "yaml"
+    },
+    "*.py": {
+        "tabsize": 4
+    },
+    "autosu": true,
+    "colorcolumn": 89,
+    "colorscheme": "simple-nobg",
+    "mkparents": true,
+    "parsecursor": true,
+    "rmtrailingws": true,
+    "savecursor": true,
+    "sucmd": "doas",
+    "tabsize": 2,
+    "tabstospaces": true
+}
