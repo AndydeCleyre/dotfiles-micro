@@ -4,31 +4,13 @@ detect:
     filename: "\\.factor$"
 
 rules:
-    - identifier: "\\b[A-Za-z_0-9-]*\\b"
-
-    - statement: "\\b(?i:(if|else|then|do|loop|case|endcase|of|endof|begin|while|repeat|until|again|unloop|leave|exit|done|next|\\?do|\\+do|\\-do|\\+loop|\\-loop|\\?leave))\\b"
-
-    - statement: "(^:|;$)"
-
-    - type: "\\b(?i:(variable|constant|cells))\\b"
-
-    - special: "\\B[?.]\\B" #for some reason, \b and \B are inverted for symbols
-
+    - comment: "!.*$"
+    - comment: "/\\*.*\\*/"
+    - symbol.operator: "\\[|\\]|\\(|\\)|\\{|\\}|;|--|:|>>"  # Added curly braces and colon
+    - constant.string: "\".*\""
+    - constant: "\\b(t|f)\\b"
+    - type: "\\b[A-Z][A-Z0-9_-]*:\\b"  # All-caps words ending with colon
+    - type: "\\b(USING:|IN:|FROM:|QUALIFIED:|ALIAS:|RENAME:)\\b"
+    - statement: "\\b(2nip|2dup|2drop|2bi|2tri|2curry|2dip|2keep|2over|3bi|3curry|3dip|3drop|3dup|3keep|3tri|4dip|4drop|4dup|4keep|deep-clone|keep-under|bi-curry|clone|\\?execute|\\?if|and|assert|assert=|assert\\?|bi-curry|bi@|bi\\*|boolean|call|clear|compose|curry|die|dip|do|drop|dup|execute|if|keep|loop|new|nip|not|null|object|or|over|pick|rot|swap|throw|unless|until|when|while|with|wrapper)\\b"
+    - identifier: "^:\\s+[\\w-]+\\b"
     - constant.number: "\\b[0-9]+\\b"
-
-    - constant.string:
-        start: "\\b([Ss.]\" )"
-        end: "\""
-        rules: []
-
-    - comment:
-        start: "\\("
-        end: "\\)"
-        rules:
-            - todo: "(TODO|NOTE|XXX|FIXME):?"
-
-    - comment:
-        start: "\\!"
-        end: "$"
-        rules:
-            - todo: "(TODO|NOTE|XXX|FIXME):?"
