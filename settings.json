@@ -1,7 +1,4 @@
 {
-    "*.factor-rc": {
-        "filetype": "factor"
-    },
     "*.nt": {
         "filetype": "yaml"
     },
