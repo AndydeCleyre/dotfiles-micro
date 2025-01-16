@@ -1,4 +1,7 @@
 {
+    "*.container": {
+        "filetype": "ini"
+    },
     "*.nt": {
         "filetype": "yaml"
     },
